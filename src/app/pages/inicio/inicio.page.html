@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>DAM2 - API REST</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="darkModeService.toggle()">
+        {{ darkMode() ? 'Modo claro' : 'Modo oscuro' }}
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <main class="home">
+    <section class="welcome">
+      <p class="eyebrow">DESARROLLO DE INTERFACES</p>
+      <h1>Catálogo de productos</h1>
+      <p>
+        Aplicación Ionic y Angular para consultar productos de una API REST.
+      </p>
+      <ion-button routerLink="/productos">Ver productos</ion-button>
+    </section>
+  </main>
+</ion-content>

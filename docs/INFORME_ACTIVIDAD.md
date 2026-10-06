@@ -90,7 +90,7 @@ Antes de entregar el PDF final hay que añadir el nombre del alumno y los enlace
 reales del repositorio y del despliegue:
 
 - PDF solicitado: `Actividad06-10-2026_tunombre.pdf`
-- GitHub: pendiente de configurar el remoto del repositorio.
+- GitHub: <https://github.com/jorgeberenguer2023-ops/Ionic-con-Angular/tree/desarrollo>
 - Vercel: pendiente de importar el repositorio y desplegar la rama `main`.
 
 Flujo previsto: trabajar y revisar en `desarrollo`; una vez aprobada la entrega,

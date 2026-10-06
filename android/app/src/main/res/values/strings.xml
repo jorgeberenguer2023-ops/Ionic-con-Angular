@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">dam2-productos</string>
+    <string name="title_activity_main">dam2-productos</string>
+    <string name="package_name">com.dam2.productos</string>
+    <string name="custom_url_scheme">com.dam2.productos</string>
+</resources>

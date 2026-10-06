@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { IonApp, IonRouterOutlet } from '@ionic/angular';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
-  imports: [IonApp, IonRouterOutlet],
+  // AppModule is required by the requested NgModule architecture.
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
-export class AppComponent {
-  constructor() {}
-}
+export class AppComponent {}

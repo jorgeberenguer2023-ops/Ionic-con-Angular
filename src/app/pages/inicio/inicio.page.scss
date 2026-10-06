@@ -1,0 +1,31 @@
+.home {
+  display: grid;
+  min-height: 70vh;
+  place-items: center;
+}
+
+.welcome {
+  width: min(680px, 100%);
+  padding: clamp(28px, 7vw, 64px);
+  border: 1px solid var(--ion-color-primary-tint);
+  border-radius: 18px;
+  background: var(--ion-card-background);
+}
+
+.eyebrow {
+  color: var(--ion-color-secondary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+h1 {
+  margin: 10px 0;
+  color: var(--ion-color-primary);
+  font-size: clamp(2.2rem, 7vw, 4rem);
+}
+
+.welcome > p:last-of-type {
+  color: var(--ion-text-color);
+  line-height: 1.6;
+}

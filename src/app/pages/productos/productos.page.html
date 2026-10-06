@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/inicio"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Productos</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="darkModeService.toggle()">
+        {{ darkMode() ? 'Modo claro' : 'Modo oscuro' }}
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h1>Listado de productos</h1>
+
+  @if (loading()) {
+    <div class="loading">
+      <ion-spinner></ion-spinner>
+      <p>Cargando productos...</p>
+    </div>
+  }
+
+  @if (error()) {
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Error</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <p>{{ error() }}</p>
+        <ion-button (click)="loadProducts()">Reintentar</ion-button>
+      </ion-card-content>
+    </ion-card>
+  }
+
+  @if (!loading() && !error()) {
+    <p>
+      Productos cargados:
+      <strong>{{ total() }}</strong>
+    </p>
+
+    <div class="product-grid">
+      @for (product of products(); track product.id) {
+        <ion-card class="product-card">
+          <img [src]="product.thumbnail" [alt]="product.title" loading="lazy" />
+          <ion-card-header>
+            <ion-card-subtitle>
+              {{ product.category }} · {{ product.brand || 'Sin marca' }}
+            </ion-card-subtitle>
+            <ion-card-title>{{ product.title }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p class="description">{{ product.description }}</p>
+            <div class="product-details">
+              <strong>{{ product.price | currency: 'EUR' }}</strong>
+              <span>⭐ {{ product.rating }}</span>
+            </div>
+            <p class="stock">Stock: {{ product.stock }}</p>
+          </ion-card-content>
+        </ion-card>
+      }
+    </div>
+
+    <nav class="pagination" aria-label="Paginación de productos">
+      <ion-button
+        fill="outline"
+        [disabled]="currentPage() === 1 || loading()"
+        (click)="previousPage()"
+      >
+        Anterior
+      </ion-button>
+      <span>Página {{ currentPage() }} de {{ totalPages() }}</span>
+      <ion-button
+        fill="outline"
+        [disabled]="currentPage() === totalPages() || loading()"
+        (click)="nextPage()"
+      >
+        Siguiente
+      </ion-button>
+    </nav>
+  }
+</ion-content>

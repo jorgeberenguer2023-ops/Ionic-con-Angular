@@ -1,6 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 
 import { User } from '../../models/user.model';
+import { DarkModeService } from '../../services/dark-mode.service';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -13,9 +14,11 @@ import { UserService } from '../../services/user.service';
 })
 export class UsuariosPage {
   private readonly userService = inject(UserService);
+  readonly darkModeService = inject(DarkModeService);
   readonly users = signal<User[]>([]);
   readonly loading = signal(false);
   readonly error = signal('');
+  readonly darkMode = this.darkModeService.isDark;
 
   constructor() {
     this.loadUsers();

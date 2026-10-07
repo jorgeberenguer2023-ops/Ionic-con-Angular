@@ -35,6 +35,11 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 @import "@ionic/angular/css/palettes/dark.class.css";
 
+ion-button.theme-toggle {
+  --border-radius: 12px;
+  font-weight: 700;
+}
+
 html.dark-theme {
   color-scheme: dark;
   --ion-background-color: #191823;

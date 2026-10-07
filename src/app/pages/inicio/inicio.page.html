@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-title>DAM2 - API REST</ion-title>
     <ion-buttons slot="end">
-      <ion-button fill="clear" (click)="darkModeService.toggle()">
+      <ion-button class="theme-toggle" size="large" fill="solid" (click)="darkModeService.toggle()">
         {{ darkMode() ? 'Modo claro' : 'Modo oscuro' }}
       </ion-button>
     </ion-buttons>
@@ -17,8 +17,14 @@
       <p>
         Aplicación Ionic y Angular para consultar productos de una API REST.
       </p>
-      <ion-button routerLink="/productos">Ver productos</ion-button>
-      <ion-button fill="outline" routerLink="/usuarios">Ver usuarios</ion-button>
+      <nav class="api-links" aria-label="APIs disponibles">
+        <ion-button class="api-button" size="large" routerLink="/productos">
+          Ver productos
+        </ion-button>
+        <ion-button class="api-button" size="large" fill="outline" routerLink="/usuarios">
+          Ver usuarios
+        </ion-button>
+      </nav>
     </section>
   </main>
 </ion-content>

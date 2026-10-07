@@ -29,3 +29,10 @@ h1 {
   color: var(--ion-text-color);
   line-height: 1.6;
 }
+
+.api-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}

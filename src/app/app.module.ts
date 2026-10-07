@@ -9,9 +9,10 @@ import { AppComponent } from './app.component';
 import { routes } from './app.routes';
 import { InicioPage } from './pages/inicio/inicio.page';
 import { ProductosPage } from './pages/productos/productos.page';
+import { UsuariosPage } from './pages/usuarios/usuarios.page';
 
 @NgModule({
-  declarations: [AppComponent, InicioPage, ProductosPage],
+  declarations: [AppComponent, InicioPage, ProductosPage, UsuariosPage],
   imports: [
     BrowserModule,
     HttpClientModule,

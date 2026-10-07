@@ -38,18 +38,18 @@ export class ProductosPage {
     this.productService
       .getProducts(this.pageSize, (page - 1) * this.pageSize)
       .subscribe({
-      next: (response: ProductsResponse) => {
-        this.products.set(response.products);
-        this.total.set(response.total);
-        this.currentPage.set(page);
-        this.loading.set(false);
-      },
-      error: (error: unknown) => {
-        console.error('No se han podido cargar los productos.', error);
-        this.error.set('No se han podido cargar los productos.');
-        this.loading.set(false);
-      },
-    });
+        next: (response: ProductsResponse) => {
+          this.products.set(response.products);
+          this.total.set(response.total);
+          this.currentPage.set(page);
+          this.loading.set(false);
+        },
+        error: (error: unknown) => {
+          console.error('No se han podido cargar los productos.', error);
+          this.error.set('No se han podido cargar los productos.');
+          this.loading.set(false);
+        },
+      });
   }
 
   previousPage(): void {

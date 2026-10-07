@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/inicio"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Usuarios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h1>Listado de usuarios</h1>
+
+  @if (loading()) {
+    <div class="loading">
+      <ion-spinner></ion-spinner>
+      <p>Cargando usuarios...</p>
+    </div>
+  }
+
+  @if (error()) {
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Error</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>{{ error() }}</p>
+        <ion-button (click)="loadUsers()">Reintentar</ion-button>
+      </ion-card-content>
+    </ion-card>
+  }
+
+  @if (!loading() && !error()) {
+    <p>Usuarios cargados: <strong>{{ users().length }}</strong></p>
+
+    <div class="user-grid">
+      @for (user of users(); track user.id) {
+        <ion-card class="user-card">
+          <ion-card-header>
+            <ion-card-subtitle>@{{ user.username }}</ion-card-subtitle>
+            <ion-card-title>{{ user.name }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p><strong>Correo:</strong> {{ user.email }}</p>
+            <p><strong>Teléfono:</strong> {{ user.phone }}</p>
+            <p><strong>Web:</strong> {{ user.website }}</p>
+            <p>
+              <strong>Dirección:</strong>
+              {{ user.address.street }}, {{ user.address.suite }},
+              {{ user.address.city }} {{ user.address.zipcode }}
+            </p>
+            <p><strong>Empresa:</strong> {{ user.company.name }}</p>
+          </ion-card-content>
+        </ion-card>
+      }
+    </div>
+  }
+</ion-content>

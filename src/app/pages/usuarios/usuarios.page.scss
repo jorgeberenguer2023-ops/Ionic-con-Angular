@@ -1,0 +1,29 @@
+.loading {
+  padding: 40px;
+  text-align: center;
+}
+
+.user-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 16px;
+}
+
+.user-card {
+  margin: 0;
+  border: 1px solid var(--ion-color-step-150, #d7d7dc);
+  border-radius: 14px;
+  background: var(--ion-card-background);
+}
+
+.user-card ion-card-title {
+  color: var(--ion-color-primary);
+}
+
+.user-card p {
+  overflow-wrap: anywhere;
+}
+
+.user-card p:last-child {
+  margin-bottom: 0;
+}

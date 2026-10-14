@@ -1,0 +1,22 @@
+.header-row {
+  font-weight: 700;
+  border-bottom: 1px solid #dfe3e8;
+  margin-bottom: 0.75rem;
+}
+
+.product-row {
+  align-items: center;
+  border-bottom: 1px solid #edf0f2;
+  padding: 0.5rem 0;
+}
+
+.product-row ion-col {
+  display: flex;
+  align-items: center;
+}
+
+.product-row img {
+  border-radius: 12px;
+  object-fit: cover;
+  background: #f4f6f8;
+}

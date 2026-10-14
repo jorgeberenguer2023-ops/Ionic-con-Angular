@@ -1,0 +1,31 @@
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row class="header-row">
+      <ion-col>ID</ion-col>
+      <ion-col>Nombre</ion-col>
+      <ion-col>Unidades</ion-col>
+      <ion-col>Precio</ion-col>
+      <ion-col>Foto</ion-col>
+    </ion-row>
+
+    @for (product of products(); track product.id) {
+      <ion-row class="product-row">
+        <ion-col>{{ product.id }}</ion-col>
+        <ion-col>{{ product.nombre }}</ion-col>
+        <ion-col>{{ product.unidades }}</ion-col>
+        <ion-col>{{ product.precio }} €</ion-col>
+        <ion-col>
+          <img [src]="product.foto" [alt]="product.nombre" width="80" height="80" />
+        </ion-col>
+      </ion-row>
+    }
+  </ion-grid>
+
+  @if (cargando()) {
+    <p role="status">Cargando productos...</p>
+  } @else if (errorCarga()) {
+    <p role="alert">{{ errorCarga() }}</p>
+  } @else if (products().length === 0) {
+    <p>No hay productos disponibles.</p>
+  }
+</ion-content>
